@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 2.24.40"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><title data-react-helmet="true">Docker compose与gcc内存不足的错误 | 浅色圆锥曲线爱好者</title><link data-react-helmet="true" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css"/><link data-react-helmet="true" rel="canonical" href="https://blog.rainy.me/posts/docker-compose-gcc-error"/><meta data-react-helmet="true" name="description" content="blog of yue: 解决docker-compose时pip intall lxml发生gcc内存不足的错误。 记忆中python的lxml库安装好像一直不是很顺利，每次环境变更都要折腾不少时间。这次又再次遇到了相似的问题。 经过本地docker-compose up测试后没有问题但是服务器pull代码运行时却出现了问题。 环境 ser..."/><meta data-react-helmet="true" property="og:title" content="Docker compose与gcc内存不足的错误"/><meta data-react-helmet="true" property="og:description" content="blog of yue: 解决docker-compose时pip intall lxml发生gcc内存不足的错误。 记忆中python的lxml库安装好像一直不是很顺利，每次环境变更都要折腾不少时间。这次又再次遇到了相似的问题。 经过本地docker-compose up测试后没有问题但是服务器pull代码运行时却出现了问题。 环境 ser..."/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="yue"/><meta data-react-helmet="true" name="twitter:title" content="Docker compose与gcc内存不足的错误"/><meta data-react-helmet="true" name="twitter:description" content="blog of yue: 解决docker-compose时pip intall lxml发生gcc内存不足的错误。 记忆中python的lxml库安装好像一直不是很顺利，每次环境变更都要折腾不少时间。这次又再次遇到了相似的问题。 经过本地docker-compose up测试后没有问题但是服务器pull代码运行时却出现了问题。 环境 ser..."/><style data-styled="" data-styled-version="5.2.1">.NfRVw{font-size:1rem;background-color:#333;box-shadow:0 1px 3px #000;color:#fff;padding:0.5rem;}/*!sc*/
+data-styled.g14[id="footer__GlobalFooter-sc-6bj9pp-0"]{content:"NfRVw,"}/*!sc*/
+.jWShHr{background:#333;box-shadow:0 0 3px #000;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:baseline;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;color:#ccc;text-align:left;font-size:1rem;padding:0.5rem;}/*!sc*/
+data-styled.g15[id="header__GlobalHeader-sc-1d76vqs-0"]{content:"jWShHr,"}/*!sc*/
+.hSDgvG > a{margin:0 10px;}/*!sc*/
+@media screen and (max-width:700px){.hSDgvG{display:none;}}/*!sc*/
+data-styled.g17[id="header__RightCorner-sc-1d76vqs-2"]{content:"hSDgvG,"}/*!sc*/
+@font-face{font-family:'great-vibes-merge';unicode-range:U+0021-007A;src:url('/fonts/GreatVibes-Regular.woff2') format('woff2');}/*!sc*/
+@font-face{font-family:'noto-serif-sc';src:url('/fonts/NotoSerifSC-Regular.subset.woff2') format('woff2');unicode-range:U+3000-9FFF;}/*!sc*/
+*{box-sizing:border-box;-ms-overflow-style:none;-webkit-scrollbar-width:none;-moz-scrollbar-width:none;-ms-scrollbar-width:none;scrollbar-width:none;}/*!sc*/
+*::selection{color:#fff;background:skyblue;}/*!sc*/
+::-webkit-scrollbar{display:none;width:0px;background:transparent;}/*!sc*/
+html,body{font-family:sans-serif;text-align:center;font-size:20px;color:#ffffff;margin:0;padding:0;width:100%;height:100%;background-color:#1d1d1d;}/*!sc*/
+ul{margin:0;padding:0;list-style:none;}/*!sc*/
+a{color:inherit;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+#___gatsby{width:100%;min-height:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}/*!sc*/
+#___gatsby > div{-webkit-box-flex:1;-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;min-height:100%;}/*!sc*/
+main{padding-bottom:3rem;}/*!sc*/
+data-styled.g19[id="sc-global-cEbgiz1"]{content:"sc-global-cEbgiz1,"}/*!sc*/
+.ctnZPS pre{background-color:#333;padding:1rem;font-size:0.9rem;overflow:scroll;text-align:left;border:0;box-shadow:0 0 10px #111;border-radius:10px;}/*!sc*/
+.ctnZPS pre code{font-family:"Fira Code";background:none;text-shadow:none;}/*!sc*/
+.ctnZPS pre code .keyword{color:hotpink;}/*!sc*/
+.ctnZPS pre code .punctuation{color:skyblue;}/*!sc*/
+.ctnZPS pre code .tag{color:hotpink;}/*!sc*/
+.ctnZPS pre code .builtin{color:mediumpurple;}/*!sc*/
+.ctnZPS pre code .operator{color:hotpink;}/*!sc*/
+.ctnZPS pre code .function{color:#ffd54f;}/*!sc*/
+.ctnZPS pre code .constant{color:mediumpurple;}/*!sc*/
+.ctnZPS pre code .parameter{color:#fb8c00;}/*!sc*/
+.ctnZPS pre code .string{color:yellowgreen;}/*!sc*/
+.ctnZPS pre code .comment{color:#555;}/*!sc*/
+.ctnZPS pre code .class-name{color:skyblue;}/*!sc*/
+data-styled.g20[id="codeBlock-sc-12lvfgr-0"]{content:"ctnZPS,"}/*!sc*/
+.iGRAlZ{margin:0 auto;width:80%;padding-bottom:8rem;}/*!sc*/
+@media screen and (max-width:700px){.iGRAlZ{width:90%;}}/*!sc*/
+data-styled.g21[id="comments__CommentBlock-sc-9weum8-0"]{content:"iGRAlZ,"}/*!sc*/
+.issIJo{margin:0 auto;padding-bottom:1rem;text-align:left;max-width:1000px;word-break:break-all;width:90%;color:#ccc;font-family:"Fira Code";}/*!sc*/
+.issIJo > *{max-width:100%;}/*!sc*/
+.issIJo h2,.issIJo h3,.issIJo h4,.issIJo h5,.issIJo h6{margin-top:3rem;color:#eee;position:relative;}/*!sc*/
+.issIJo h2::before,.issIJo h3::before,.issIJo h4::before,.issIJo h5::before,.issIJo h6::before{content:"○";position:absolute;color:#607d8b;top:0;left:-1.5rem;}/*!sc*/
+.issIJo h2::before{content:"#";}/*!sc*/
+.issIJo h3::before{content:"◆";}/*!sc*/
+.issIJo del{color:#555;}/*!sc*/
+.issIJo img{-webkit-transition:0.3s all ease-in-out;transition:0.3s all ease-in-out;display:block;margin:2rem auto;max-width:100%;object-fit:contain;opacity:0.8;}/*!sc*/
+.issIJo img:hover{opacity:1;}/*!sc*/
+.issIJo a{position:relative;z-index:1;}/*!sc*/
+.issIJo a::after{-webkit-transition:0.3s all ease-in-out;transition:0.3s all ease-in-out;content:" ";position:absolute;width:100%;height:2px;background-color:#607d8b;left:0;bottom:0;z-index:-1;}/*!sc*/
+.issIJo a:hover{color:#fff;text-shadow:0 0 3px #000;}/*!sc*/
+.issIJo a:hover::after{background-color:hotpink;}/*!sc*/
+.issIJo ul{list-style:disc;padding-left:1rem;}/*!sc*/
+.issIJo table{margin:3rem auto;border-collapse:collapse;}/*!sc*/
+.issIJo table th,.issIJo table tr,.issIJo table td{padding:10px;border:3px solid #333;}/*!sc*/
+.issIJo blockquote{padding:1rem;margin:1rem 0;background-color:#333;}/*!sc*/
+.issIJo code{text-shadow:0 0 5px #000;word-break:break-word;border-radius:5px;margin:5px 2px;display:inline-block;padding:1px 5px;font-family:"Fira Code";background-image:linear-gradient(100deg,#455a64 47%,#757575);}/*!sc*/
+.issIJo iframe{width:80%;margin:0 auto;display:inherit;}/*!sc*/
+@media screen and (max-width:700px){.issIJo h2::before,.issIJo h3::before,.issIJo h4::before,.issIJo h5::before,.issIJo h6::before{top:0.2rem;font-size:1rem;left:-1rem;}.issIJo iframe{max-width:100%;width:100%;}}/*!sc*/
+data-styled.g22[id="markdownContent__MarkdownContentBlock-sc-1c6mo1j-0"]{content:"issIJo,"}/*!sc*/
+.gGdKwU{font-size:inherit;padding:1rem;font-family:'great-vibes-merge','noto-serif-sc';-webkit-filter:drop-shadow(0 0 3px #000);filter:drop-shadow(0 0 3px #000);width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;display:inline-block;font-weight:normal;text-align:center;background:linear-gradient(180deg,skyblue,#e91e63);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}/*!sc*/
+@media screen and (max-width:700px){.gGdKwU{font-size:4rem;}}/*!sc*/
+data-styled.g23[id="gradientFont-sc-6873be-0"]{content:"gGdKwU,"}/*!sc*/
+.cyZxmM{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin:4rem;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-align-items:baseline;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;}/*!sc*/
+.cyZxmM a{margin:1rem;}/*!sc*/
+@media screen and (max-width:700px){.cyZxmM{margin:0;margin-bottom:3rem;}.cyZxmM a{margin:1rem 5px;}}/*!sc*/
+data-styled.g53[id="pagination__PaginationNav-sc-1nud1ku-0"]{content:"cyZxmM,"}/*!sc*/
+.iENrYe{-webkit-transition:0.5s all cubic-bezier(0.4,0,0.2,1);transition:0.5s all cubic-bezier(0.4,0,0.2,1);box-shadow:#0 0 5px #000;background:#333;color:none;border-radius:5px;padding:0.5rem;background-size:200%,150%;}/*!sc*/
+.iENrYe:hover{background-color:#e91e63;}/*!sc*/
+data-styled.g54[id="pagination__PaginationLink-sc-1nud1ku-1"]{content:"iENrYe,"}/*!sc*/
+.kUfmsL{font-size:4rem;word-break:break-word;margin-bottom:1rem;}/*!sc*/
+@media screen and (max-width:700px){.kUfmsL{font-size:4rem;}}/*!sc*/
+data-styled.g58[id="post__PostTitle-sc-1xlzpqm-0"]{content:"kUfmsL,"}/*!sc*/
+.entpDK{font-size:1.5rem;color:#666;margin-bottom:2rem;display:inline-block;text-shadow:0 0 1rem #000;}/*!sc*/
+data-styled.g59[id="post__PostDate-sc-1xlzpqm-1"]{content:"entpDK,"}/*!sc*/
+</style><link rel="icon" href="/favicon-32x32.png?v=9cddaf2e6e675db0946c978328f41acf" type="image/png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#333333"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=9cddaf2e6e675db0946c978328f41acf"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=9cddaf2e6e675db0946c978328f41acf"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=9cddaf2e6e675db0946c978328f41acf"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=9cddaf2e6e675db0946c978328f41acf"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=9cddaf2e6e675db0946c978328f41acf"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=9cddaf2e6e675db0946c978328f41acf"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=9cddaf2e6e675db0946c978328f41acf"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=9cddaf2e6e675db0946c978328f41acf"/><link as="script" rel="preload" href="/webpack-runtime-a381b291fba9b8d72f96.js"/><link as="script" rel="preload" href="/framework-d018bf9a55d82f10618c.js"/><link as="script" rel="preload" href="/app-8674ff2d423d1c45de71.js"/><link as="script" rel="preload" href="/2c282eaea363d2bbd23f6fd873d3621ed8cccc49-00a73d1bcd5f8ea4550f.js"/><link as="script" rel="preload" href="/2595aca8b7d3d21cc09d2fd82059f82ae42ef8db-7d5256a5ccad346d8436.js"/><link as="script" rel="preload" href="/component---src-templates-post-index-tsx-d31780e81820518cdb6d.js"/><link as="fetch" rel="preload" href="/page-data/posts/docker-compose-gcc-error/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1132682437.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3649515864.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/764694655.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div><header class="header__GlobalHeader-sc-1d76vqs-0 jWShHr"><span class="header__LeftCorner-sc-1d76vqs-1 hlA-dLO"><a href="/">浅色圆锥曲线爱好者</a></span><span class="header__RightCorner-sc-1d76vqs-2 hSDgvG"><a href="/posts">Posts</a><a href="/notes">Notes</a><a href="/aboutme">About</a></span></header><main style="opacity:0"><div><h1 class="post__PostTitle-sc-1xlzpqm-0 kUfmsL"><span class="gradientFont-sc-6873be-0 gGdKwU">Docker compose与gcc内存不足的错误</span></h1><time class="post__PostDate-sc-1xlzpqm-1 entpDK">2019-01-05</time><article class="codeBlock-sc-12lvfgr-0 markdownContent__MarkdownContentBlock-sc-1c6mo1j-0 ctnZPS issIJo"><p>解决docker-compose时pip intall lxml发生gcc内存不足的错误。</p><p>记忆中python的<code class="language-text">lxml</code>库安装好像一直不是很顺利，每次环境变更都要折腾不少时间。这次又再次遇到了相似的问题。</p><p>经过本地<code class="language-text">docker-compose up</code>测试后没有问题但是服务器pull代码运行时却出现了问题。</p><h2>环境</h2><h3>server</h3><p><strong>server OS</strong> : Docker centOS7 Application</p><h4>spec</h4><table><thead><tr><th>-</th><th>-</th></tr></thead><tbody><tr><td>CPU:</td><td>1 vCore</td></tr><tr><td>RAM:</td><td>1024 MB</td></tr><tr><td>Storage:</td><td>25 GB SSD</td></tr></tbody></table><p>最初只是做<code class="language-text">proxy</code>用的所以选了尽可能小的，但是RAM如果1G以下docker都吃力所以姑且选了1G，没想到还是稍微遇到了问题</p><h3>requirements.txt</h3><div class="gatsby-highlight" data-language="text"><pre style="counter-reset:linenumber NaN" class="language-text line-numbers"><code class="language-text"># requirements.txt
+
+sanic
+sanic-cors
+requests
+lxml</code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div><h3>Dockerfile</h3><div class="gatsby-highlight" data-language="dockerfile"><pre style="counter-reset:linenumber NaN" class="language-dockerfile line-numbers"><code class="language-dockerfile"><span class="token comment"># Dockerfile</span>
+
+<span class="token keyword">FROM</span> python<span class="token punctuation">:</span>3.7<span class="token punctuation">-</span>alpine
+<span class="token keyword">ADD</span> . /app
+<span class="token keyword">WORKDIR</span> /app
+<span class="token keyword">RUN</span> apk add <span class="token punctuation">-</span><span class="token punctuation">-</span>no<span class="token punctuation">-</span>cache <span class="token punctuation">-</span><span class="token punctuation">-</span>virtual .build<span class="token punctuation">-</span>deps \
+    ca<span class="token punctuation">-</span>certificates make gcc postgresql<span class="token punctuation">-</span>dev linux<span class="token punctuation">-</span>headers musl<span class="token punctuation">-</span>dev libxslt<span class="token punctuation">-</span>dev\
+    libffi<span class="token punctuation">-</span>dev jpeg<span class="token punctuation">-</span>dev zlib<span class="token punctuation">-</span>dev \
+    &amp;&amp; pip install <span class="token punctuation">-</span>r requirements.txt
+<span class="token keyword">CMD</span> <span class="token punctuation">[</span><span class="token string">&quot;python&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;main.py&quot;</span><span class="token punctuation">]</span>
+<span class="token keyword">EXPOSE</span> 8000
+</code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div><h2>错误信息</h2><p>本身<code class="language-text">Running setup.py bdist_wheel for lxml: started</code>这里就会停很久，之前在树莓派上也有类似情况。</p><p>内容和这个<a href="https://stackoverflow.com/questions/34825789/install-lxml-on-centos-7-error-command-gcc-failed-with-exit-status-4">stackoverflow的问题</a>一样</p><p><code class="language-text">&#x27;gcc&#x27; failed with exit status 4</code></p><p>具体如下</p><div class="gatsby-highlight" data-language="text"><pre style="counter-reset:linenumber NaN" class="language-text line-numbers"><code class="language-text">  ···
+
+  running build_ext
+    building &#x27;lxml.etree&#x27; extension
+    creating build/temp.linux-x86_64-3.7
+    creating build/temp.linux-x86_64-3.7/src
+    creating build/temp.linux-x86_64-3.7/src/lxml
+    gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -DTHREAD_STACK_SIZE=0x100000 -fPIC -DCYTHON_CLINE_IN_TRACEBACK=0 -I/usr/include/libxml2 -Isrc -Isrc/lxml/includes -I/usr/local/include/python3.7m -c src/lxml/etree.c -o build/temp.linux-x86_64-3.7/src/lxml/etree.o -w
+    gcc: internal compiler error: Killed (program cc1)
+    Please submit a full bug report,
+    with preprocessed source if appropriate.
+    See &lt;http://gcc.gnu.org/bugs.html&gt; for instructions.
+    Compile failed: command &#x27;gcc&#x27; failed with exit status 4
+    cc -I/usr/include/libxml2 -I/usr/include/libxml2 -c /tmp/xmlXPathInitvuz17qeg.c -o tmp/xmlXPathInitvuz17qeg.o
+    /tmp/xmlXPathInitvuz17qeg.c:2:1: warning: return type defaults to &#x27;int&#x27; [-Wimplicit-int]
+     main (int argc, char **argv) {
+     ^~~~
+    cc tmp/xmlXPathInitvuz17qeg.o -L/usr/lib -lxml2 -o a.out
+    error: command &#x27;gcc&#x27; failed with exit status 4
+    
+    ----------------------------------------
+Command &quot;/usr/local/bin/python -u -c &quot;import setuptools, tokenize;__file__=&#x27;/tmp/pip-install-9plrs64w/lxml/setup.py&#x27;;f=getattr(tokenize, &#x27;open&#x27;, open)(__file__);code=f.read().replace(&#x27;\r\n&#x27;, &#x27;\n&#x27;);f.close();exec(compile(code, __file__, &#x27;exec&#x27;))&quot; install --record /tmp/pip-record-ee3ss7qu/install-record.txt --single-version-externally-managed --compile&quot; failed with error code 1 in /tmp/pip-install-9plrs64w/lxml/
+ERROR: Service &#x27;sanic&#x27; failed to build: The command &#x27;/bin/sh -c apk add --no-cache --virtual .build-deps     ca-certificates make gcc postgresql-dev linux-headers musl-dev libxslt-dev    libffi-dev jpeg-dev zlib-dev     &amp;&amp; pip install -r requirements.txt&#x27; returned a non-zero code: 1
+
+···
+</code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div><p>贴近问题的是<a href="https://stackoverflow.com/a/24547445/10005510">这个回答</a></p><p>看下内存:</p><div class="gatsby-highlight" data-language="text"><pre style="counter-reset:linenumber NaN" class="language-text line-numbers"><code class="language-text">$ free -m
+              total        used        free      shared  buff/cache   available
+Mem:            991         177         574          50         238         612
+Swap:             0           0           0</code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span></span></pre></div><p>确实很少。。</p><p>既然物理内存不方便增加，增加swap是貌似最简单的方法了。具体方法参考<a href="https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-centos-7">digitalocean的文章</a></p><div class="gatsby-highlight" data-language="shell"><pre style="counter-reset:linenumber NaN" class="language-shell line-numbers"><code class="language-shell"><span class="token function">sudo</span> fallocate -l 4G /swapfile  <span class="token comment"># 新建swap文件</span>
+<span class="token function">sudo</span> <span class="token function">chmod</span> <span class="token number">600</span> /swapfile <span class="token comment"># 限制权限</span>
+<span class="token function">sudo</span> <span class="token function">mkswap</span> /swapfile <span class="token comment"># 设置swap</span>
+<span class="token function">sudo</span> <span class="token function">swapon</span> /swapfile <span class="token comment"># 启用swap</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span></span></pre></div><p>之后</p><div class="gatsby-highlight" data-language="text"><pre style="counter-reset:linenumber NaN" class="language-text line-numbers"><code class="language-text">$ free -m
+              total        used        free      shared  buff/cache   available
+Mem:            991         182         547          50         260         607
+Swap:          4095           0        4095</code><span aria-hidden="true" class="line-numbers-rows" style="white-space:normal;width:auto;left:0"><span></span><span></span><span></span><span></span></span></pre></div><p>然后再<code class="language-text">docker-compose up</code>就顺利跑通了。</p></article></div><nav class="pagination__PaginationNav-sc-1nud1ku-0 cyZxmM"><a href="/posts/2018-recap"><span class="pagination__PaginationLink-sc-1nud1ku-1 iENrYe">&lt; 2018总结</span></a><a href="/posts/start-using-tumblr"><span class="pagination__PaginationLink-sc-1nud1ku-1 iENrYe">about Tumblr &gt;</span></a></nav><div class="comments__CommentBlock-sc-9weum8-0 iGRAlZ"><div shortname="yue-blog" config="[object Object]" id="disqus_thread"></div></div></main></div><footer class="footer__GlobalFooter-sc-6bj9pp-0 NfRVw">© <!-- -->2020</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/docker-compose-gcc-error";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-2b9c2143bc2048f0e806.js"],"app":["/app-8674ff2d423d1c45de71.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-3366c0891f0c3afc2f72.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-a5ad74968dbce0588591.js"],"component---src-pages-aboutme-tsx":["/component---src-pages-aboutme-tsx-83d8daf3dab84b586c14.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-b9d3c82973606f4d0eb7.js"],"component---src-pages-ogp-tsx":["/component---src-pages-ogp-tsx-13617ce9f806ce325ad7.js"],"component---src-templates-note-archive-tsx":["/component---src-templates-note-archive-tsx-edcf0e20c4902314ab66.js"],"component---src-templates-note-index-tsx":["/component---src-templates-note-index-tsx-f0d84ed1557a5d10746c.js"],"component---src-templates-post-archive-tsx":["/component---src-templates-post-archive-tsx-1e13a47d11a27bcb52fb.js"],"component---src-templates-post-index-tsx":["/component---src-templates-post-index-tsx-d31780e81820518cdb6d.js"]};/*]]>*/</script><script src="/polyfill-2b9c2143bc2048f0e806.js" nomodule=""></script><script src="/component---src-templates-post-index-tsx-d31780e81820518cdb6d.js" async=""></script><script src="/2595aca8b7d3d21cc09d2fd82059f82ae42ef8db-7d5256a5ccad346d8436.js" async=""></script><script src="/2c282eaea363d2bbd23f6fd873d3621ed8cccc49-00a73d1bcd5f8ea4550f.js" async=""></script><script src="/app-8674ff2d423d1c45de71.js" async=""></script><script src="/framework-d018bf9a55d82f10618c.js" async=""></script><script src="/webpack-runtime-a381b291fba9b8d72f96.js" async=""></script></body></html>
