@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 <url> <loc>https://blog.yue.coffee/notes</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blog.yue.coffee/notes/compliance/lecture-2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/visual-language/week-6</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/visual-language/week-5</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/visual-language/week-4</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -57,6 +58,7 @@
 <url> <loc>https://blog.yue.coffee/notes/digital-communication/lecture-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/special-lecture/story-of-making-kimispi-movie</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/recommended-books</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blog.yue.coffee/notes/compliance</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/digital-communication</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/special-lecture</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/event/2018-11-3-vuefes</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
