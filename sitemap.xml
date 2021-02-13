@@ -30,8 +30,8 @@
 <url> <loc>https://blog.yue.coffee/notes/event/2019-10-07-mericari-go-11</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/3d/introduction</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/3d</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blog.yue.coffee/notes/event/2019-7-26-chrome-tech-talk</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/event/2019-8-26-nuxt-meepup</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blog.yue.coffee/notes/event/2019-7-26-chrome-tech-talk</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/event/2019-7-11-ai-for-future-socirty-symposium</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/event/2019-7-10-typescript-meetup</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/introduction-to-content-industry/lecture-4</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -68,6 +68,7 @@
 <url> <loc>https://blog.yue.coffee/notes/special-lecture</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/event/2018-11-3-vuefes</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/notes/engineer-literacy</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blog.yue.coffee/posts/about-vtubers</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/posts/arch-linux-with-desktop-pc</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/posts/measure-and-optimize-using-usecallback-usememo-and-memo</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/posts/about-webpack-externals</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -102,7 +103,7 @@
 <url> <loc>https://blog.yue.coffee/posts/machine-learning</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/posts/Fortress_Besieged_metaphor</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/posts/honeybee-and-thunder</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blog.yue.coffee/posts/about_AKB</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blog.yue.coffee/posts/about-AKB</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/posts/17spring&amp;JapanDay11</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/posts/17spring&amp;JapanDay10</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blog.yue.coffee/posts/17spring&amp;JapanDay9</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
